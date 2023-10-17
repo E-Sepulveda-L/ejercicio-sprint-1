@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <section id="poster">
+        <header>
+            <p class="logo"><span class="sp-logo">Frozen</span> Cream</p>
+            <nav>
+                <ul>
+                    <li><a href="#"><span>Home</span></a></li>
+                    <li><a href="#"><span>Offers</span></a></li>
+                    <li><a href="#"><span>Menu</span></a></li>
+                    <li><a href="#"><span>Delivery</span></a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="content">
+            <h1>Our Offers!</h1>
+            <div class="container">
+                <div class="contenido">
+                    <img src="ResourcesElevemosElEstilo/image1.jpg" alt="" class="image-">
+                    <p class="paragrph-content">Fruit Cream</p>
+                </div>
+                <div class="contenido">
+                    <img src="ResourcesElevemosElEstilo/image2.jpg" alt="" class="image-">
+                    <p class="paragrph-content">Coffe Cream</p>
+                </div>
+                <div class="contenido">
+                    <img src="ResourcesElevemosElEstilo/image3.jpg" alt="" class="image-">
+                    <p class="paragrph-content">Pancake Cream</p>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p class="footer-p">Created by: Erick Sepulveda</p>
+        </footer>
+    </section>
+
+
+    <script>
+        const el = document.getElementById('poster') 
+        const height = el.clientHeight
+        const width = el.clientWidth
+
+        el.addEventListener('mousemove', (evt) => {
+            const {layerX, layerY} = evt
+
+            const yRotation = (
+                (layerX - width / 2) / width
+            ) * 1
+
+
+            const xRotation = (
+                (layerY - height / 2) / height
+            ) * 1
+
+            const string = `
+                perspective(500px)
+                scale(1.02)
+                rotateX(${xRotation}deg) 
+                rotateY(${yRotation}deg)`
+
+            el.style.transform = string
+        })
+
+        el.addEventListener('mouseout', () => {
+            el.style.transform = `
+                perspective(500px)
+                scale(1)
+                rotateX(0) 
+                rotateY(0)`
+        })
+    </script>
+</body>
+</html>
